@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight, FlaskConical, UserRound } from "lucide-react";
 
 const links = [
@@ -35,6 +36,14 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
+        <Image
+          src="/logo.png"
+          alt="dxb.az logo"
+          width={96}
+          height={96}
+          priority
+          className="mx-auto mb-6 h-20 w-20 drop-shadow-[0_0_24px_rgba(34,211,238,0.35)] sm:h-24 sm:w-24"
+        />
         <p className="mb-3 text-sm uppercase tracking-[0.3em] text-white/40">Welcome to</p>
         <h1 className="text-6xl font-semibold tracking-tight sm:text-7xl">
           dxb<span className="text-accent">.</span>az
