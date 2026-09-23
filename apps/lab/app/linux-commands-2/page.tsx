@@ -9,7 +9,8 @@ import { ui } from "@/lib/i18n";
 import { linuxTasks2 } from "@/data/linux-tasks-2";
 import TaskCard2 from "@/components/TaskCard2";
 
-const SOLVED_KEY = "lab-linux2-solved";
+// v2 suffix: intentionally resets any stale/incorrect progress from earlier testing.
+const SOLVED_KEY = "lab-linux2-solved-v2";
 
 export default function LinuxCommands2Page() {
   const { lang } = useLanguage();
@@ -29,6 +30,15 @@ export default function LinuxCommands2Page() {
     setSolved((prev) => {
       if (prev.includes(id)) return prev;
       const next = [...prev, id];
+      localStorage.setItem(SOLVED_KEY, JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const unmarkSolved = (id: number) => {
+    setSolved((prev) => {
+      if (!prev.includes(id)) return prev;
+      const next = prev.filter((x) => x !== id);
       localStorage.setItem(SOLVED_KEY, JSON.stringify(next));
       return next;
     });
@@ -70,6 +80,7 @@ export default function LinuxCommands2Page() {
             index={i}
             solved={solved.includes(task.id)}
             onSolved={() => markSolved(task.id)}
+            onReset={() => unmarkSolved(task.id)}
           />
         ))}
       </section>

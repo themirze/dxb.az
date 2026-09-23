@@ -19,6 +19,7 @@ export const ui = {
     hintsLeft: "ipucu qaldı",
     comingSoon: "Tezliklə",
     openLab: "Başla",
+    comingSoonToast: "Bu modul tezliklə əlavə olunacaq.",
     lab2: {
       openTerminal: "Terminalı aç",
       closeTerminal: "Terminalı bağla",
@@ -49,6 +50,7 @@ export const ui = {
     hintsLeft: "hints left",
     comingSoon: "Coming soon",
     openLab: "Start",
+    comingSoonToast: "This module will be added soon.",
     lab2: {
       openTerminal: "Open terminal",
       closeTerminal: "Close terminal",

@@ -32,9 +32,10 @@ interface Props {
   index: number;
   solved: boolean;
   onSolved: () => void;
+  onReset: () => void;
 }
 
-export default function TaskCard2({ task, lang, index, solved, onSolved }: Props) {
+export default function TaskCard2({ task, lang, index, solved, onSolved, onReset }: Props) {
   const t = ui[lang];
   const t2 = t.lab2;
   const content = task[lang];
@@ -71,6 +72,10 @@ export default function TaskCard2({ task, lang, index, solved, onSolved }: Props
   const reset = () => {
     setRoot(cloneTree(task.filesystem));
     setCwd([]);
+    setPasswordValue("");
+    setPasswordStatus("idle");
+    setPasswordOk(!task.password);
+    onReset();
   };
 
   return (
@@ -107,8 +112,7 @@ export default function TaskCard2({ task, lang, index, solved, onSolved }: Props
         {open && (
           <button
             onClick={reset}
-            disabled={solved}
-            className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/40 transition-colors hover:border-white/30 disabled:opacity-30"
+            className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/40 transition-colors hover:border-white/30"
           >
             {t2.reset}
           </button>
