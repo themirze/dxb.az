@@ -1,0 +1,16 @@
+{
+  "name": "dxb-az",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev:main": "pnpm --filter main dev",
+    "dev:mirza": "pnpm --filter mirza dev",
+    "dev:lab": "pnpm --filter lab dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.1.3"
+  }
+}
