@@ -5,9 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  // TODO: replace with real name/title once resume content is provided
-  title: "Mirza — Resume",
-  description: "Personal resume and portfolio of Mirza.",
+  title: "Mirzagha Aliyev — Resume",
+  description: "Data & Analytics professional — resume and portfolio of Mirzagha Aliyev.",
   metadataBase: new URL("https://mirza.dxb.az"),
 };
 

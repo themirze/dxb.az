@@ -13,7 +13,7 @@ const links = [
   {
     href: "https://lab.dxb.az",
     title: "lab.dxb.az",
-    description: "Experiments & side projects",
+    description: "Lab assignments for students",
     icon: FlaskConical,
   },
 ];

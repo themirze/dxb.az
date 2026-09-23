@@ -2,37 +2,42 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Terminal } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+import { ui } from "@/lib/i18n";
 
-// TODO: replace placeholder experiments with real projects.
+// TODO: replace placeholder labs with the real assignments handed out to students.
 
-const experiments = [
+const labs = [
   {
-    title: "Experiment One",
-    description: "Short description of what this experiment explores or builds.",
-    status: "live",
-    href: "#",
+    href: "/linux-commands",
+    az: { title: "Linux Əmrləri", description: "20 tapşırıq: fayl sistemi əmrlərini öyrən və sına." },
+    en: { title: "Linux Commands", description: "20 tasks covering core filesystem commands." },
+    status: "open" as const,
   },
   {
-    title: "Experiment Two",
-    description: "Short description of what this experiment explores or builds.",
-    status: "beta",
     href: "#",
+    az: { title: "Lab 2 — Tezliklə", description: "Yeni tapşırıq tezliklə əlavə olunacaq." },
+    en: { title: "Lab 2 — Coming soon", description: "A new assignment will be added soon." },
+    status: "upcoming" as const,
   },
   {
-    title: "Experiment Three",
-    description: "Short description of what this experiment explores or builds.",
-    status: "archived",
     href: "#",
+    az: { title: "Lab 3 — Tezliklə", description: "Yeni tapşırıq tezliklə əlavə olunacaq." },
+    en: { title: "Lab 3 — Coming soon", description: "A new assignment will be added soon." },
+    status: "upcoming" as const,
   },
 ];
 
 const statusColor: Record<string, string> = {
-  live: "text-accent border-accent/40",
-  beta: "text-yellow-400 border-yellow-400/40",
-  archived: "text-white/40 border-white/20",
+  open: "text-accent border-accent/40",
+  upcoming: "text-yellow-400 border-yellow-400/40",
+  closed: "text-white/40 border-white/20",
 };
 
 export default function Home() {
+  const { lang } = useLanguage();
+  const t = ui[lang];
+
   return (
     <main className="mx-auto max-w-3xl px-6 py-24 sm:py-32">
       <motion.section
@@ -45,19 +50,16 @@ export default function Home() {
           <span>lab.dxb.az</span>
         </div>
         <h1 className="mt-3 text-5xl font-semibold tracking-tight sm:text-6xl">
-          The Lab<span className="text-accent">_</span>
+          Labs<span className="text-accent">_</span>
         </h1>
-        <p className="mt-6 max-w-xl text-white/50">
-          A running log of experiments, prototypes, and side projects — some
-          polished, some held together with duct tape.
-        </p>
+        <p className="mt-6 max-w-xl text-white/50">{t.labsTagline}</p>
       </motion.section>
 
       <section className="mt-16 space-y-4">
-        {experiments.map((exp, i) => (
+        {labs.map((lab, i) => (
           <motion.a
-            key={exp.title}
-            href={exp.href}
+            key={lab.href + lab.en.title}
+            href={lab.href}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
@@ -65,14 +67,14 @@ export default function Home() {
           >
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-medium">{exp.title}</h2>
+                <h2 className="font-medium">{lab[lang].title}</h2>
                 <span
-                  className={`rounded-full border px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide ${statusColor[exp.status]}`}
+                  className={`rounded-full border px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide ${statusColor[lab.status]}`}
                 >
-                  {exp.status}
+                  {lab.status === "open" ? t.openLab : t.comingSoon}
                 </span>
               </div>
-              <p className="mt-1 text-sm text-white/50">{exp.description}</p>
+              <p className="mt-1 text-sm text-white/50">{lab[lang].description}</p>
             </div>
             <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-white/30 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
           </motion.a>
@@ -83,10 +85,6 @@ export default function Home() {
         &copy; {new Date().getFullYear()} · part of{" "}
         <a href="https://dxb.az" className="hover:text-white/60">
           dxb.az
-        </a>{" "}
-        ·{" "}
-        <a href="https://mirza.dxb.az" className="hover:text-white/60">
-          mirza.dxb.az
         </a>
       </footer>
     </main>
