@@ -19,6 +19,15 @@ export const ui = {
     hintsLeft: "ipucu qaldı",
     comingSoon: "Tezliklə",
     openLab: "Başla",
+    lab2: {
+      openTerminal: "Terminalı aç",
+      closeTerminal: "Terminalı bağla",
+      reset: "Sıfırla",
+      passwordPlaceholder: "Tapdığın şifrəni bura yaz...",
+      submit: "Göndər",
+      complete: "Tapşırıq tamamlandı!",
+      noPassword: "Bu tapşırıqda şifrə yoxdur — quruluşu düzgün qur.",
+    },
   },
   en: {
     labsTagline: "Lab assignments for students.",
@@ -40,5 +49,14 @@ export const ui = {
     hintsLeft: "hints left",
     comingSoon: "Coming soon",
     openLab: "Start",
+    lab2: {
+      openTerminal: "Open terminal",
+      closeTerminal: "Close terminal",
+      reset: "Reset",
+      passwordPlaceholder: "Paste the password you found...",
+      submit: "Submit",
+      complete: "Task complete!",
+      noPassword: "No password for this one — just get the structure right.",
+    },
   },
 } as const;

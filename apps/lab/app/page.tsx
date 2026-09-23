@@ -15,10 +15,10 @@ const labs = [
     status: "open" as const,
   },
   {
-    href: "#",
-    az: { title: "Lab 2 — Tezliklə", description: "Yeni tapşırıq tezliklə əlavə olunacaq." },
-    en: { title: "Lab 2 — Coming soon", description: "A new assignment will be added soon." },
-    status: "upcoming" as const,
+    href: "/linux-commands-2",
+    az: { title: "Linux Əmrləri 2", description: "10 tapşırıq: virtual terminalda qovluqları araşdır, şifrələri tap." },
+    en: { title: "Linux Commands 2", description: "10 tasks: explore folders in a virtual terminal and find hidden passwords." },
+    status: "open" as const,
   },
   {
     href: "#",
