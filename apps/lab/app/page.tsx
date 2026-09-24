@@ -17,6 +17,7 @@ const groups = [
     subLabs: [
       { href: "/linux-commands", az: "Linux Əmrləri", en: "Linux Commands" },
       { href: "/linux-commands-2", az: "Linux Əmrləri 2", en: "Linux Commands 2" },
+      { href: "/linux-commands-3", az: "Linux Əmrləri 3", en: "Linux Commands 3" },
     ],
   },
   {
